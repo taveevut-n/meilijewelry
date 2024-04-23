@@ -66,42 +66,42 @@
 																	while ($dbimg->next_record()) {
 																	?> 
 																<? if ($dbimg->f(pic1)!='') { ?> 
-																<a href="http://praasia.com/resize/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic1)?>">
+																<a href="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic1)?>">
 																<img 
-																	src="http://praasia.com/resize/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic1)?>",
-																	data-big="http://praasia.com/resize/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic1)?>"
+																	src="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic1)?>",
+																	data-big="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic1)?>"
 																	>
 																</a>
 																<? } ?>
 																<? if ($dbimg->f(pic2)!='') { ?>
-																<a href="http://praasia.com/resize/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic2)?>">
+																<a href="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic2)?>">
 																<img 
-																	src="http://praasia.com/resize/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic2)?>",
-																	data-big="http://praasia.com/resize/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic2)?>"
+																	src="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic2)?>",
+																	data-big="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic2)?>"
 																	>
 																</a>
 																<? } ?>
 																<? if ($dbimg->f(pic3)!='') { ?>
-																<a href="http://praasia.com/resize/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic3)?>">
+																<a href="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic3)?>">
 																<img 
-																	src="http://praasia.com/resize/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic3)?>",
-																	data-big="http://praasia.com/resize/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic3)?>"
+																	src="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic3)?>",
+																	data-big="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic3)?>"
 																	>
 																</a>    
 																<? } ?>
 																<? if ($dbimg->f(pic4)!='') { ?>
-																<a href="http://praasia.com/resize/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic4)?>">
+																<a href="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic4)?>">
 																<img 
-																	src="http://praasia.com/resize/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic4)?>",
-																	data-big="http://praasia.com/resize/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic4)?>"
+																	src="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic4)?>",
+																	data-big="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic4)?>"
 																	>
 																</a>    
 																<? } ?> 
 																<? if ($dbimg->f(pic5)!='') { ?>
-																<a href="http://praasia.com/resize/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic5)?>">
+																<a href="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic5)?>">
 																<img 
-																	src="http://praasia.com/resize/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic5)?>",
-																	data-big="http://praasia.com/resize/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic5)?>"
+																	src="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic5)?>",
+																	data-big="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?=$dbimg->f(pic5)?>"
 																	>
 																</a>    
 																<? } ?>                                                            
@@ -166,7 +166,7 @@
 												<tr>
 													<td width="130" align="center" bgcolor="#FFFFFF">
 														<a href="detail_product.php?id=<?=$dbproduct->f(id)?>">
-															<img src="<?=($dbproduct->f(pic1)!="")?'http://praasia.com/resize/w110-h110-c1:1/jewelry/upimg/product/'.$dbproduct->f(pic1):"images/clear.gif"?>" alt=""  border="0" />
+															<img src="<?=($dbproduct->f(pic1)!="")?'http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/'.$dbproduct->f(pic1):"images/clear.gif"?>" alt=""  border="0" />
 														</a>
 													</td>
 													<td valign="top" bgcolor="#FFFFFF">
