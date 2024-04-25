@@ -201,13 +201,13 @@
                         <td height="45"
                             align="center"
                             valign="top"
-                            style="background:url(images/bg-catalog.png) no-repeat; padding-top:10px"><a href="show_product.php?cat_id=3"><span style="color:#000">กำไล - สร้อยข้อมือ</span></a></td>
+                            style="background:url(images/bg-catalog.png) no-repeat; padding-top:10px"><a href="show_product.php?cat_id=3"><span style="color:#000">กำไล - สร้อยพระทองต่างๆ</span></a></td>
                       </tr>
                       <tr>
                         <td height="45"
                             align="center"
                             valign="top"
-                            style="background:url(images/bg-catalog.png) no-repeat; padding-top:10px"><a href="show_product.php?cat_id=4"><span style="color:#000">จี้ - เข็มกลัด</span></a></td>
+                            style="background:url(images/bg-catalog.png) no-repeat; padding-top:10px"><a href="show_product.php?cat_id=4"><span style="color:#000">ก้านปู-แหนบพระ-จี้-เข็มกลัด</span></a></td>
                       </tr>
                       <tr>
                         <td height="45"
