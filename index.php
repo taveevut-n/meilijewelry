@@ -1,4 +1,13 @@
-<? include('global.php') ?>
+<?
+include('global.php');
+
+function _stripTags($text = '')
+{
+  $data = strip_tags(preg_replace("/<img[^>]+\>/i", '', stripcslashes($text)), '');
+
+  return $data;
+}
+?>
 <?php set_page($s_page, $e_page = 100); //นำส่วนนี้ิไว้ด้านบน 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -27,7 +36,6 @@
     /* Demo styles */
     html,
     body {
-      ;
       margin: 0;
     }
 
@@ -223,7 +231,11 @@
               while ($dbhot->next_record()) { ?>
                 <table width="160" border="0" cellspacing="0" cellpadding="0" style="float:left; margin:10px">
                   <tr>
-                    <td height="120" align="center" bgcolor="#333333" style="border:1px solid #666"><a href="detail_product.php?id=<?= $dbhot->f(id) ?>"><img src="<?= ($dbhot->f(pic1) != "") ? 'http://www.praasia.com/slir/w150-h120/jewelry/upimg/product/' . $dbhot->f(pic1) : "images/clear.gif" ?>" alt="" border="0" /></a></td>
+                    <td height="120" align="center" bgcolor="#333333" style="border:1px solid #666">
+                      <a href="detail_product.php?id=<?= $dbhot->f(id) ?>">
+                        <img src="<?= ($dbhot->f(pic1) != "") ? 'http://www.praasia.com/slir/w150-h120/jewelry/upimg/product/' . $dbhot->f(pic1) : "images/clear.gif" ?>" alt="" border="0" />
+                      </a>
+                    </td>
                   </tr>
                 </table>
               <?php } ?>
@@ -233,8 +245,8 @@
       </td>
     </tr>
     <tr>
-      <td><img src="images/bh-product.jpg" width="1000" height="100" />
-
+      <td>
+        <img src="images/bh-product.jpg" width="1000" height="100" />
       </td>
     </tr>
     <tr>
@@ -242,58 +254,129 @@
         <table width="100%" cellpadding="0" cellspacing="0">
           <tr>
             <td width="10" height="300" valign="top" style="padding-top:50px">
-              <table width="950" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-bottom:10px">
-                <tr>
-                  <td>
-                    <? $q = "SELECT * FROM `jew_product` WHERE 1 ";
-                    $db->query($q);
-                    $total = $db->num_rows();
-                    $q .= " ORDER BY id DESC LIMIT $s_page,$e_page";
-                    $dbproduct = new nDB();
-                    $dbproduct->query($q);
-                    while ($dbproduct->next_record()) { ?>
-                      <table width="450" border="0" cellspacing="0" cellpadding="0" style="float:left; margin-left:10px; border-bottom:1px dotted #DDDDDD">
-                        <tr>
-                          <td width="130" align="center" bgcolor="#FFFFFF"><a href="detail_product.php?id=<?= $dbproduct->f(id) ?>"><img src="<?= ($dbproduct->f(pic1) != "") ? 'http://www.praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/' . $dbproduct->f(pic1) : "images/clear.gif" ?>" alt="" border="0" /></a></td>
-                          <td valign="top" bgcolor="#FFFFFF">
-                            <table width="100%" border="0" cellspacing="0" cellpadding="3">
-                              <tr>
-                                <td>
-                                  <div style="overflow:hidden; width:315px; white-space:nowrap; height:25px">
-                                    <a href="detail_product.php?id=<?= $dbproduct->f(id) ?>"><span style="color:#dc3300; font-size:14px"><?= $dbproduct->f(name) ?></span></a>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td><span style="color:#333; font-size:12px; font-weight:bold">ราคา <?= $dbproduct->f(price) ?> บาท</span></td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div style="overflow-y:hidden; width:315px; word-break:break-all; height:65px">
-                                    <span style="color:#333; font-size:12px; font-family:Tahoma"><?= $dbproduct->f(detail) ?></span>
-                                  </div>
-                                </td>
-                              </tr>
-                            </table>
-                          </td>
-                        </tr>
-                      </table>
+
+              <?php
+              $array = [];
+              $q = "SELECT * FROM `jew_product` WHERE 1 ";
+              $db->query($q);
+              $total = $db->num_rows();
+              $q .= " ORDER BY id DESC LIMIT $s_page,$e_page";
+              $dbproduct = new nDB();
+              $dbproduct->query($q);
+              while ($dbproduct->next_record()) {
+                $array[$dbproduct->f(id)] = [
+                  'id' => $dbproduct->f(id),
+                  'pic1' => $dbproduct->f(pic1),
+                  'name' => $dbproduct->f(name),
+                  'price' => $dbproduct->f(price),
+                  'detail' => $dbproduct->f(detail),
+                ];
+              }
+
+              $chucks = array_chunk($array, 2);
+              // print_r($chucks);
+              // exit;
+              ?>
+
+              <style>
+                .tbl-grid-product {
+                  float: left;
+                  margin-left: 10px;
+                  border-bottom: 1px dotted #DDDDDD;
+                  
+                }
+
+                .tbl-grid-product td {
+                  /* padding-top: 10px;
+                  padding-bottom: 10px; */
+                  background-color: white;
+                }
+
+                .tbl-grid-product .flex-product-name {
+                  height: 40px;
+                  overflow: hidden !important;
+                  text-overflow: ellipsis;
+                  display: -webkit-box;
+                  -webkit-box-orient: vertical;
+                  -webkit-line-clamp: 2;
+                }
+
+                .tbl-grid-product .flex-product-price {
+                  color: #333;
+                  font-size: 12px;
+                  font-weight: bold
+                }
+
+                .tbl-grid-product .flex-product-detail {
+                  height: 40px;
+                  overflow: hidden !important;
+                  text-overflow: ellipsis;
+                  display: -webkit-box;
+                  -webkit-box-orient: vertical;
+                  -webkit-line-clamp: 2;
+                  color: #6e6a6a;
+                }
+              </style>
+
+              <table width="950" border="0" align="center" cellpadding="0" cellspacing="10" style="margin-bottom:10px">
+                <?php foreach ($chucks as $key => $value) { ?>
+                  <tr>
+                    <?php foreach ($value as $key => $product) { ?>
+                      <td>
+                        <table width="450" border="0" cellspacing="0" cellpadding="0" class="tbl-grid-product">
+                          <tr>
+                            <td width="130" align="center">
+                              <a href="detail_product.php?id=<?= $product['id'] ?>">
+                                <img src="<?= ($product['pic1'] != "") ? 'http://www.praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/' . $product['pic1'] : "images/clear.gif" ?>" alt="" border="0" />
+                              </a>
+                            </td>
+                            <td valign="top">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                                <tr>
+                                  <td>
+                                    <div class="flex-product-name">
+                                      <a href="detail_product.php?id=<?= $product['id'] ?>">
+                                        <span style="color:#dc3300; font-size:14px">
+                                          <?= $product['name'] ?>
+                                        </span>
+                                      </a>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <span class="flex-product-price">ราคา <?= $product['price'] ?> บาท</span>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="flex-product-detail">
+                                      <?php echo _stripTags($product['detail']); ?>
+                                    </div>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
                     <?php } ?>
-                  </td>
-                </tr>
+                  </tr>
+                <?php } ?>
               </table>
             </td>
           </tr>
           <tr>
-            <td height="30" align="center" bgcolor="#000000"><?php sh_page($total, $s_page, $e_page, $chk_page, Previous, Next, "#999999", "#FFCC00"); // นำไปวางในตำแหน่งที่ต้องการแสดง 
-                                                              ?>;</td>
+            <td height="30" align="center" bgcolor="#000000">
+              <?php sh_page($total, $s_page, $e_page, $chk_page, Previous, Next, "#999999", "#FFCC00"); ?>
+            </td>
           </tr>
         </table>
       </td>
     </tr>
     <tr>
-      <td><img src="images/footer.jpg" width="1000" height="114" />
-
+      <td>
+        <img src="images/footer.jpg" width="1000" height="114" />
       </td>
     </tr>
   </table>
