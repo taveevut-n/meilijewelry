@@ -1,0 +1,22 @@
+
+@import "2-components/lumen/bootswatch";
+@import "1-variables/fonts";
+@import "1-variables/color";
+
+html,
+body {
+ 
+
+  img[src^='https://um.simpli'],
+  img[src^='https://i.liadm.com'] {
+    display: none !important;
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: $head-font;
+  font-weight: 700;
+}
