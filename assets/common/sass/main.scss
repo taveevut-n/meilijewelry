@@ -1,22 +1,118 @@
-
 @import "2-components/lumen/bootswatch";
 @import "1-variables/fonts";
 @import "1-variables/color";
 
 html,
 body {
- 
+    font-family: $body-font;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    background-color: #dddddd;
+    font-size: 12px;
+    border-top: 4px solid #000;
 
-  img[src^='https://um.simpli'],
-  img[src^='https://i.liadm.com'] {
-    display: none !important;
-  }
+    img[src^='https://um.simpli'],
+    img[src^='https://i.liadm.com'] {
+        display: none !important;
+    }
 }
 
 h1,
 h2,
 h3,
 h4 {
-  font-family: $head-font;
-  font-weight: 700;
+    font-family: $head-font;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 12px;
+    font-weight: normal;
+    color: #ddd;
+    margin: 0;
+}
+
+.content {
+    color: #777;
+    font-size: 12px;
+    width: 500px;
+    background-color: #000;
+}
+
+a {
+    color: #22BCB9;
+    text-decoration: none;
+}
+
+.cred {
+    font-size: 11px;
+}
+
+#galleria {
+    height: 355px;
+}
+
+.tbl-grid-product {
+    float: left;
+    margin-left: 10px;
+    border-bottom: 1px dotted #DDDDDD;
+}
+
+.tbl-grid-product td {
+    /* padding-top: 10px;
+    padding-bottom: 10px; */
+    background-color: white;
+}
+
+.tbl-grid-product .flex-product-name {
+    height: 40px;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.tbl-grid-product .flex-product-price {
+    color: #333;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.tbl-grid-product .flex-product-detail {
+    height: 40px;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    color: #6e6a6a;
+}
+
+.menu-top {
+    td {
+        font-size: 14px;
+
+        a {
+            color: #333 !important;
+        }
+    }
+}
+
+.front_intro {
+    overflow-y: scroll;
+    height: 430px;
+    padding: 0px 8px;
+
+    * {
+        font-size: 14px !important;
+    }
+}
+
+.contact-detail {
+    * {
+        font-size: 14px;
+    }
 }

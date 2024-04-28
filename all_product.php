@@ -1,4 +1,7 @@
-<? include('global.php') ?>
+<?php
+include('global.php');
+include('helpers/general.php');
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -7,59 +10,12 @@
   <title>เพชรเหม่ยลี่ &amp; จิวเวอร์รี่ รับทำทอง เพชร กรอบเลี่ยมทอง แหวนทอง แหวนเพชร จี้ เข็มกลัด</title>
   <META name=description content="บริการรับทำแหวนทอง แหวนเพชร แหวนฝังพลอย อัญมณี ทุกรูปแบบ ด้วยทีมงานมืออาชีพ ประสบการณ์กว่า 40 ปี">
   <META name=keywords content="ทำทอง,กรอบพระทอง,แหวนทอง, แหวนเพชร, แหวนอัญมณี, Jewelry,">
+  <link rel="stylesheet" href="./assets/common/css/bundle.min.css">
   <!-- load jQuery -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
 
   <!-- load Galleria -->
   <script src="galleria/galleria-1.2.9.min.js"></script>
-  <style type="text/css">
-    body {
-      margin-left: 0px;
-      margin-top: 0px;
-      margin-right: 0px;
-      margin-bottom: 0px;
-      background-color: #dddddd;
-      font-size: 12px;
-    }
-
-    /* Demo styles */
-    html,
-    body {
-      margin: 0;
-    }
-
-    body {
-      border-top: 4px solid #000;
-    }
-
-    .content {
-      color: #777;
-      font: 12px/1.4 "helvetica neue", arial, sans-serif;
-      width: 500px;
-      background-color: #000
-    }
-
-    h1 {
-      font-size: 12px;
-      font-weight: normal;
-      color: #ddd;
-      margin: 0;
-    }
-
-    a {
-      color: #22BCB9;
-      text-decoration: none;
-    }
-
-    .cred {
-      font-size: 11px;
-    }
-
-    /* This rule is read by Galleria to define the gallery height: */
-    #galleria {
-      height: 355px
-    }
-  </style>
 </head>
 
 <body>
@@ -68,21 +24,16 @@
       <td>
         <table width="1000" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td><img src="head.jpg" width="1000" height="286"></td>
+            <td><img src="assets/images/head.jpg" width="1000" height="286"></td>
           </tr>
           <tr>
             <td height="441" valign="top" style="background:url(/images/bg-chap.jpg) no-repeat;">
               <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                   <td height="55" colspan="2">
-                    <table width="900" border="0" align="center" cellpadding="5" cellspacing="0">
-                      <tr>
-                        <td align="center"><a href="../index.php"><span style="color:#000">หน้าแรกร้านพระ / 首页佛牌店</span></a></td>
-                        <td align="center"><a href="index.php"><span style="color:#000">หน้าแรกจิวเวลรี่ / 首页MEILIANDJEWELRY</span></a></td>
-                        <td align="center"><a href="all_product.php?"><span style="color:#000">สินค้าทั้งหมด / 总共商品</span></a></td>
-                        <td align="center"><a href="contact.php"><span style="color:#000">ติดต่อเรา / 联系我们</span></a></td>
-                      </tr>
-                    </table>
+
+                    <?php include('components/menu_top.php'); ?>
+
                   </td>
                 </tr>
                 <tr>
@@ -140,7 +91,7 @@
                   <td width="43%" valign="top" style="padding-left:85px; padding-top:15px">
 
                     <?php include('components/categories.php'); ?>
-                    
+
                   </td>
                 </tr>
               </table>
@@ -150,47 +101,85 @@
       </td>
     </tr>
     <tr>
-      <td style="background:url(images/bg-product.jpg) no-repeat">
+      <td>
+        <img src="images/bh-product.jpg" width="1000" height="100" />
+      </td>
+    </tr>
+    <tr>
+      <td style="background:url(images/bg-product.jpg)">
         <table width="100%" cellpadding="0" cellspacing="0">
           <tr>
-            <td width="10" height="300" valign="top" style="padding-top:50px">
-              <table width="950" border="0" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td>
-                    <? $q = "SELECT * FROM `jew_product` WHERE 1 ORDER BY id DESC ";
-                    $dbproduct = new nDB();
-                    $dbproduct->query($q);
-                    while ($dbproduct->next_record()) { ?>
-                      <table width="450" border="0" cellspacing="0" cellpadding="0" style="float:left; margin-left:10px; border-bottom:1px dotted #DDDDDD">
-                        <tr>
-                          <td width="130" align="center" bgcolor="#FFFFFF"><a href="detail_product.php?id=<?= $dbproduct->f(id) ?>"><img src="<?= ($dbproduct->f(pic1) != "") ? 'http://www.praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/' . $dbproduct->f(pic1) : "images/clear.gif" ?>" alt="" border="0" /></a></td>
-                          <td valign="top" bgcolor="#FFFFFF">
-                            <table width="100%" border="0" cellspacing="0" cellpadding="3">
-                              <tr>
-                                <td>
-                                  <div style="overflow:hidden; width:315px; white-space:nowrap; height:25px">
-                                    <a href="detail_product.php?id=<?= $dbproduct->f(id) ?>"><span style="color:#dc3300; font-size:14px"><?= $dbproduct->f(name) ?></span></a>
-                                  </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td><span style="color:#333; font-size:12px; font-weight:bold">ราคา <?= $dbproduct->f(price) ?> บาท</span></td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div style="overflow-y:hidden; width:315px; word-break:break-all; height:65px">
-                                    <span style="color:#333; font-size:12px; font-family:Tahoma"><?= $dbproduct->f(detail) ?></span>
-                                  </div>
-                                </td>
-                              </tr>
-                            </table>
-                          </td>
-                        </tr>
-                      </table>
+            <td width="10" height="300" valign="top">
+
+              <?php
+              $array = [];
+              $q = "SELECT * FROM `jew_product` WHERE 1 ORDER BY id DESC ";
+              $dbproduct = new nDB();
+              $dbproduct->query($q);
+              while ($dbproduct->next_record()) {
+                $array[$dbproduct->f(id)] = [
+                  'id' => $dbproduct->f(id),
+                  'pic1' => $dbproduct->f(pic1),
+                  'name' => $dbproduct->f(name),
+                  'price' => $dbproduct->f(price),
+                  'detail' => $dbproduct->f(detail),
+                ];
+              }
+
+              $chucks = array_chunk($array, 2);
+              ?>
+
+              <table width="950" border="0" align="center" cellpadding="5" cellspacing="5" style="margin-bottom:10px">
+                <?php foreach ($chucks as $key => $value) { ?>
+                  <tr>
+                    <?php foreach ($value as $key => $product) { ?>
+                      <td>
+                        <table width="450" border="0" cellspacing="0" cellpadding="0" class="tbl-grid-product">
+                          <tr>
+                            <td width="115" align="center">
+                              <a href="detail_product.php?id=<?= $product['id'] ?>">
+                                <img src="<?= ($product['pic1'] != "") ? 'http://www.praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/' . $product['pic1'] : "
+                                 images/clear.gif"
+                                          ?>" alt="" border="0" />
+                              </a>
+                            </td>
+                            <td valign="top">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                                <tr>
+                                  <td>
+                                    <div class="flex-product-name">
+                                      <a href="detail_product.php?id=<?= $product['id'] ?>">
+                                        <span style="color:#dc3300; font-size:14px">
+                                          <?= $product['name'] ?>
+                                        </span>
+                                      </a>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <span class="flex-product-price">ราคา
+                                      <?= $product['price'] ?> บาท
+                                    </span>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="flex-product-detail">
+                                      <?php echo _stripTags($product['detail']); ?>
+                                    </div>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
                     <?php } ?>
-                  </td>
-                </tr>
+                  </tr>
+                <?php } ?>
               </table>
+
             </td>
           </tr>
         </table>

@@ -1,6 +1,12 @@
 <?php
 include('global.php');
-include('helpers/general.php');
+
+function _stripTags($text = '')
+{
+  $data = strip_tags(preg_replace("/<img[^>]+\>/i", '', stripcslashes($text)), '');
+
+  return $data;
+}
 ?>
 <?php set_page($s_page, $e_page = 100); //นำส่วนนี้ิไว้ด้านบน 
 ?>
@@ -12,12 +18,59 @@ include('helpers/general.php');
   <title>เพชรเหม่ยลี่ &amp; จิวเวอร์รี่ รับทำทอง เพชร กรอบเลี่ยมทอง แหวนทอง แหวนเพชร จี้ เข็มกลัด</title>
   <META name=description content="บริการรับทำแหวนทอง แหวนเพชร แหวนฝังพลอย อัญมณี ทุกรูปแบบ ด้วยทีมงานมืออาชีพ ประสบการณ์กว่า 40 ปี">
   <META name=keywords content="ทำทอง,กรอบพระทอง,แหวนทอง, แหวนเพชร, แหวนอัญมณี, Jewelry,">
-  <link rel="stylesheet" href="./assets/common/css/bundle.min.css">
   <!-- load jQuery -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
 
   <!-- load Galleria -->
   <script src="galleria/galleria-1.2.9.min.js"></script>
+  <style type="text/css">
+    body {
+      margin-left: 0px;
+      margin-top: 0px;
+      margin-right: 0px;
+      margin-bottom: 0px;
+      background-color: #dddddd;
+      font-size: 12px;
+    }
+
+    /* Demo styles */
+    html,
+    body {
+      margin: 0;
+    }
+
+    body {
+      border-top: 4px solid #000;
+    }
+
+    .content {
+      color: #777;
+      font: 12px/1.4 "helvetica neue", arial, sans-serif;
+      width: 500px;
+      background-color: #000
+    }
+
+    h1 {
+      font-size: 12px;
+      font-weight: normal;
+      color: #ddd;
+      margin: 0;
+    }
+
+    a {
+      color: #22BCB9;
+      text-decoration: none;
+    }
+
+    .cred {
+      font-size: 11px;
+    }
+
+    /* This rule is read by Galleria to define the gallery height: */
+    #galleria {
+      height: 355px
+    }
+  </style>
 </head>
 
 <body>
@@ -33,9 +86,14 @@ include('helpers/general.php');
               <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                   <td height="55" colspan="2">
-
-                    <?php include('components/menu_top.php'); ?>
-
+                    <table width="900" border="0" align="center" cellpadding="5" cellspacing="0">
+                      <tr>
+                        <td align="center"><a href="../index.php"><span style="color:#000">หน้าแรกร้านพระ / 首页佛牌店</span></a></td>
+                        <td align="center"><a href="index.php"><span style="color:#000">หน้าแรกจิวเวลรี่ / 首页MEILIANDJEWELRY</span></a></td>
+                        <td align="center"><a href="all_product.php?"><span style="color:#000">สินค้าทั้งหมด / 总共商品</span></a></td>
+                        <td align="center"><a href="contact.php"><span style="color:#000">ติดต่อเรา / 联系我们</span></a></td>
+                      </tr>
+                    </table>
                   </td>
                 </tr>
                 <tr>
@@ -125,6 +183,9 @@ include('helpers/general.php');
           }
           ?>
           <tr>
+            <td height="260" align="center" valign="top" style="background:url(images/bg-slide.png) no-repeat"><a href="<?= $url ?>" target="<?= $target ?>"><img src="/jewelry/upimg/banner/<?= $dbbanner->f(banner_img) ?>" width="970" height="242" border="0" /></a></td>
+          </tr>
+          <tr>
             <td height="507" valign="top" style="background:url(images/bg-welcome.jpg) no-repeat">
               <table width="100%" cellpadding="0" cellspacing="0">
                 <tr>
@@ -149,9 +210,7 @@ include('helpers/general.php');
                       $dbwelcome->next_record() ?>
                       <tr>
                         <td>
-                          <div class="front_intro">
-                            <?= $dbwelcome->f(detail) ?>
-                          </div>
+                          <!-- <?= $dbwelcome->f(detail) ?> -->
                         </td>
                       </tr>
                     </table>
@@ -196,7 +255,7 @@ include('helpers/general.php');
       <td style="background:url(images/bg-product.jpg) repeat-y">
         <table width="100%" cellpadding="0" cellspacing="0">
           <tr>
-            <td width="10" height="300" valign="top">
+            <td width="10" height="300" valign="top" style="padding-top:50px">
 
               <?php
               $array = [];
@@ -217,20 +276,60 @@ include('helpers/general.php');
               }
 
               $chucks = array_chunk($array, 2);
+              // print_r($chucks);
+              // exit;
               ?>
 
-              <table width="950" border="0" align="center" cellpadding="5" cellspacing="5" style="margin-bottom:10px">
+              <style>
+                .tbl-grid-product {
+                  float: left;
+                  margin-left: 10px;
+                  border-bottom: 1px dotted #DDDDDD;
+
+                }
+
+                .tbl-grid-product td {
+                  /* padding-top: 10px;
+                  padding-bottom: 10px; */
+                  background-color: white;
+                }
+
+                .tbl-grid-product .flex-product-name {
+                  height: 40px;
+                  overflow: hidden !important;
+                  text-overflow: ellipsis;
+                  display: -webkit-box;
+                  -webkit-box-orient: vertical;
+                  -webkit-line-clamp: 2;
+                }
+
+                .tbl-grid-product .flex-product-price {
+                  color: #333;
+                  font-size: 12px;
+                  font-weight: bold
+                }
+
+                .tbl-grid-product .flex-product-detail {
+                  height: 40px;
+                  overflow: hidden !important;
+                  text-overflow: ellipsis;
+                  display: -webkit-box;
+                  -webkit-box-orient: vertical;
+                  -webkit-line-clamp: 2;
+                  color: #6e6a6a;
+                }
+              </style>
+
+              <table width="950" border="0" align="center" cellpadding="0" cellspacing="10" style="margin-bottom:10px">
                 <?php foreach ($chucks as $key => $value) { ?>
                   <tr>
                     <?php foreach ($value as $key => $product) { ?>
                       <td>
                         <table width="450" border="0" cellspacing="0" cellpadding="0" class="tbl-grid-product">
                           <tr>
-                            <td width="115" align="center">
+                            <td width="130" align="center">
                               <a href="detail_product.php?id=<?= $product['id'] ?>">
-                                <img src="<?= ($product['pic1'] != "") ? 'http://www.praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/' . $product['pic1'] : "
-                                 images/clear.gif"
-                                          ?>" alt="" border="0" />
+                                <img src="<?= ($product['pic1'] != "") ? 'http://www.praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/' . $product['pic1'] : "images/clear.gif" ?>" alt="" border="0" />
                               </a>
                             </td>
                             <td valign="top">
@@ -248,9 +347,7 @@ include('helpers/general.php');
                                 </tr>
                                 <tr>
                                   <td>
-                                    <span class="flex-product-price">ราคา
-                                      <?= $product['price'] ?> บาท
-                                    </span>
+                                    <span class="flex-product-price">ราคา <?= $product['price'] ?> บาท</span>
                                   </td>
                                 </tr>
                                 <tr>

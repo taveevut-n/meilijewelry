@@ -1,12 +1,4 @@
 // config font: import fonts in Grunt.js
 
-$body-font: "Sarabun", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
-$head-font: "Seed Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
-
-$extra-font-1: $head-font;
-
-:root {
-    --bs-body-font-family: #{$body-font};
-    // --bs-body-font-size: 0.875rem;
-    --bs-body-color: #333
-}
+$body-font: "Prompt", Arial, Helvetica, sans-serif;
+$head-font: "Prompt", Arial, Helvetica, sans-serif;

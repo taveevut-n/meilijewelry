@@ -42,7 +42,7 @@ body {
   <tr>
     <td><table width="1000" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td><img src="head.jpg" width="1000" height="286"></td>
+    <td><img src="assets/images/head.jpg" width="1000" height="286"></td>
   </tr>
 </table>
 </td>

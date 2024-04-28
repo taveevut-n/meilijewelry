@@ -9,6 +9,7 @@
   <META name=keywords content="ทำทอง,กรอบพระทอง,แหวนทอง, แหวนเพชร, แหวนอัญมณี, Jewelry,">
   <!-- load jQuery -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+
   <!-- load Galleria -->
   <script src="galleria/galleria-1.2.9.min.js"></script>
   <style type="text/css">
@@ -18,6 +19,7 @@
       margin-right: 0px;
       margin-bottom: 0px;
       background-color: #dddddd;
+      font-size: 12px;
     }
 
     /* Demo styles */
@@ -69,14 +71,14 @@
             <td><img src="assets/images/head.jpg" width="1000" height="286"></td>
           </tr>
           <tr>
-            <td height="441" valign="top" style="background:url(bg-chap.jpg) no-repeat;">
+            <td height="441" valign="top" style="background:url(/images/bg-chap.jpg) no-repeat;">
               <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                   <td height="55" colspan="2">
                     <table width="900" border="0" align="center" cellpadding="5" cellspacing="0">
                       <tr>
                         <td align="center"><a href="../index.php"><span style="color:#000">หน้าแรกร้านพระ / 首页佛牌店</span></a></td>
-                        <td align="center"><a href="../index.php"><span style="color:#000">หน้าแรกจิวเวลรี่ / 首页MEILIANDJEWELRY</span></a></td>
+                        <td align="center"><a href="index.php"><span style="color:#000">หน้าแรกจิวเวลรี่ / 首页MEILIANDJEWELRY</span></a></td>
                         <td align="center"><a href="all_product.php?"><span style="color:#000">สินค้าทั้งหมด / 总共商品</span></a></td>
                         <td align="center"><a href="contact.php"><span style="color:#000">ติดต่อเรา / 联系我们</span></a></td>
                       </tr>
@@ -91,34 +93,34 @@
                           <div class="content">
                             <div id="galleria">
                               <?php
-                              $q = "SELECT * FROM `jew_product` WHERE catalog = '" . $_GET['cat_id'] . "' ";
+                              $q = "SELECT * FROM `jew_product` WHERE 1 ";
                               $dbimg = new nDB();
                               $dbimg->query($q);
                               while ($dbimg->next_record()) {
                               ?>
                                 <? if ($dbimg->f(pic1) != '') { ?>
-                                  <a href="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?= $dbimg->f(pic1) ?>">
-                                    <img src="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?= $dbimg->f(pic1) ?>" , data-big="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?= $dbimg->f(pic1) ?>">
+                                  <a href="upimg/product/<?= $dbimg->f(pic1) ?>">
+                                    <img src="slir/w110-h110-c1:1/upimg/product/<?= $dbimg->f(pic1) ?>" , data-big="upimg/product/<?= $dbimg->f(pic1) ?>">
                                   </a>
                                 <? } ?>
                                 <? if ($dbimg->f(pic2) != '') { ?>
-                                  <a href="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?= $dbimg->f(pic2) ?>">
-                                    <img src="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?= $dbimg->f(pic2) ?>" , data-big="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?= $dbimg->f(pic2) ?>">
+                                  <a href="upimg/product/<?= $dbimg->f(pic2) ?>">
+                                    <img src="slir/w110-h110-c1:1/upimg/product/<?= $dbimg->f(pic2) ?>" , data-big="upimg/product/<?= $dbimg->f(pic2) ?>">
                                   </a>
                                 <? } ?>
                                 <? if ($dbimg->f(pic3) != '') { ?>
-                                  <a href="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?= $dbimg->f(pic3) ?>">
-                                    <img src="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?= $dbimg->f(pic3) ?>" , data-big="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?= $dbimg->f(pic3) ?>">
+                                  <a href="upimg/product/<?= $dbimg->f(pic3) ?>">
+                                    <img src="slir/w110-h110-c1:1/upimg/product/<?= $dbimg->f(pic3) ?>" , data-big="upimg/product/<?= $dbimg->f(pic3) ?>">
                                   </a>
                                 <? } ?>
                                 <? if ($dbimg->f(pic4) != '') { ?>
-                                  <a href="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?= $dbimg->f(pic4) ?>">
-                                    <img src="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?= $dbimg->f(pic4) ?>" , data-big="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?= $dbimg->f(pic4) ?>">
+                                  <a href="upimg/product/<?= $dbimg->f(pic4) ?>">
+                                    <img src="slir/w110-h110-c1:1/upimg/product/<?= $dbimg->f(pic4) ?>" , data-big="upimg/product/<?= $dbimg->f(pic4) ?>">
                                   </a>
                                 <? } ?>
                                 <? if ($dbimg->f(pic5) != '') { ?>
-                                  <a href="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?= $dbimg->f(pic5) ?>">
-                                    <img src="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?= $dbimg->f(pic5) ?>" , data-big="http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/<?= $dbimg->f(pic5) ?>">
+                                  <a href="upimg/product/<?= $dbimg->f(pic5) ?>">
+                                    <img src="slir/w110-h110-c1:1/upimg/product/<?= $dbimg->f(pic5) ?>" , data-big="upimg/product/<?= $dbimg->f(pic5) ?>">
                                   </a>
                                 <? } ?>
                               <?php } ?>
@@ -138,7 +140,7 @@
                   <td width="43%" valign="top" style="padding-left:85px; padding-top:15px">
 
                     <?php include('components/categories.php'); ?>
-
+                    
                   </td>
                 </tr>
               </table>
@@ -155,18 +157,13 @@
               <table width="950" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr>
                   <td>
-                    <?
-                    $q = "SELECT * FROM `jew_product` WHERE catalog = '" . $_GET['cat_id'] . "' ORDER BY id DESC LIMIT 0,20 ";
+                    <? $q = "SELECT * FROM `jew_product` WHERE 1 ORDER BY id DESC ";
                     $dbproduct = new nDB();
                     $dbproduct->query($q);
                     while ($dbproduct->next_record()) { ?>
-                      <table width="450" border="1" cellspacing="0" cellpadding="0" style="float:left; margin-left:10px; border-bottom:1px dotted #DDDDDD">
+                      <table width="450" border="0" cellspacing="0" cellpadding="0" style="float:left; margin-left:10px; border-bottom:1px dotted #DDDDDD">
                         <tr>
-                          <td width="130" align="center" bgcolor="#FFFFFF">
-                            <a href="detail_product.php?id=<?= $dbproduct->f(id) ?>">
-                              <img src="<?= ($dbproduct->f(pic1) != "") ? 'http://praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/' . $dbproduct->f(pic1) : "images/clear.gif" ?>" alt="" border="0" />
-                            </a>
-                          </td>
+                          <td width="130" align="center" bgcolor="#FFFFFF"><a href="detail_product.php?id=<?= $dbproduct->f(id) ?>"><img src="<?= ($dbproduct->f(pic1) != "") ? 'http://www.praasia.com/slir/w110-h110-c1:1/jewelry/upimg/product/' . $dbproduct->f(pic1) : "images/clear.gif" ?>" alt="" border="0" /></a></td>
                           <td valign="top" bgcolor="#FFFFFF">
                             <table width="100%" border="0" cellspacing="0" cellpadding="3">
                               <tr>

@@ -19528,14 +19528,20 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
 }
 
-:root {
-  --bs-body-font-family: Sarabun, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, sans-serif;
-  --bs-body-color: #333
-;
-}
-
 .highlight-primary {
   color: #1e874c !important;
+}
+
+html,
+body {
+  font-family: "Prompt", Arial, Helvetica, sans-serif;
+  margin-left: 0px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  background-color: #dddddd;
+  font-size: 12px;
+  border-top: 4px solid #000;
 }
 
 html img[src^='https://um.simpli'],
@@ -19546,6 +19552,92 @@ body img[src^='https://i.liadm.com'] {
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
-  font-family: "Seed Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
+  font-family: "Prompt", Arial, Helvetica, sans-serif;
   font-weight: 700;
+}
+
+h1, .h1 {
+  font-size: 12px;
+  font-weight: normal;
+  color: #ddd;
+  margin: 0;
+}
+
+.content {
+  color: #777;
+  font-size: 12px;
+  width: 500px;
+  background-color: #000;
+}
+
+a {
+  color: #22BCB9;
+  text-decoration: none;
+}
+
+.cred {
+  font-size: 11px;
+}
+
+#galleria {
+  height: 355px;
+}
+
+.tbl-grid-product {
+  float: left;
+  margin-left: 10px;
+  border-bottom: 1px dotted #DDDDDD;
+}
+
+.tbl-grid-product td {
+  /* padding-top: 10px;
+    padding-bottom: 10px; */
+  background-color: white;
+}
+
+.tbl-grid-product .flex-product-name {
+  height: 40px;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.tbl-grid-product .flex-product-price {
+  color: #333;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.tbl-grid-product .flex-product-detail {
+  height: 40px;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  color: #6e6a6a;
+}
+
+.menu-top td {
+  font-size: 14px;
+}
+
+.menu-top td a {
+  color: #333 !important;
+}
+
+.front_intro {
+  overflow-y: scroll;
+  height: 430px;
+  padding: 0px 8px;
+}
+
+.front_intro * {
+  font-size: 14px !important;
+}
+
+.contact-detail * {
+  font-size: 14px;
 }
